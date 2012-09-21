@@ -1,0 +1,78 @@
+Without using play():
+python
+>>> from mcts import *
+>>> b = Board()
+# move black to (2, 2) - (zero indexed!)
+>>> b.move(b.point[2][2])
+>>> b.printBoard()
+1 2 3 4 5 6 7 8 9
+1 . . . . . . . . .
+2 . . . . . . . . .
+3 . . B . . . . . .
+4 . . . . . . . . .
+5 . . . . . . . . .
+6 . . . . . . . . .
+7 . . . . . . . . .
+8 . . . . . . . . .
+9 . . . . . . . . .
+# move white to (1, 2)
+>>> b.move(b.point[1][2])
+>>> b.printBoard()
+1 2 3 4 5 6 7 8 9
+1 . . . . . . . . .
+2 . . W . . . . . .
+3 . . B . . . . . .
+4 . . . . . . . . .
+5 . . . . . . . . .
+6 . . . . . . . . .
+7 . . . . . . . . .
+8 . . . . . . . . .
+9 . . . . . . . . .
+and so on ...
+b.size
+b.nextPlayer
+b.emptyPoints
+b.history
+b.blackDead
+b.whiteDead
+gives board size
+color of the next player - ’BLACK’ or ‘WHITE’
+list of empty points on the board
+list of moves played so far
+number of dead black stones
+number of dead white stones
+clone = b.cloneBoard()
+b.reset()
+b.move(b.point[x][y])
+b.replay()
+b.isLegal(b.point[x][y])
+b.printBoard()
+b.usefulMoves()
+b.isGameOver()
+b.randomEmptyPoint()
+returns a copy of the board
+intializes everything back to defaults
+playes move at (x,y). if silent = True, doesn’t print error messages
+replays the entire game so far
+checks if move at (x, y) is legal or not. returns True or False.
+prints the board
+returns list of liberties of last two stones
+true if there are no more legal empty points on the board
+returns random empty point (x, y)
+
+
+getLiberties(x,y,board)
+returns a list of liberties surrounding a point or group
+getChainPoints(x,y,board) returns a list of points of the same color connected to (x, y)
+inAtari(b.point[x][y], board) true if (x,y) has only one liberty left
+Using play():
+python
+>>> from mcts import *
+>>> play()
+?: 1 1
+and so on ...
+use
+?: p to pass a turn
+?: q to quit game
+
+
